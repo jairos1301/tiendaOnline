@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LogoComponent } from './components/logo/logo.component';
@@ -12,6 +12,12 @@ import { ListaProductosComponent } from './components/lista-productos/lista-prod
 import { LoginComponent } from './components/users/login/login.component';
 import { RegisterComponent } from './components/users/register/register.component';
 import { Page404Component } from './components/errors/page404/page404.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from 'src/environments/environment';
+import { AuthService } from './services/auth.service';
+import { SlideComponent } from './slide/slide.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +30,18 @@ import { Page404Component } from './components/errors/page404/page404.component'
     ListaProductosComponent,
     LoginComponent,
     RegisterComponent,
-    Page404Component
+    Page404Component,
+    SlideComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    NgbModule,
+    AppRoutingModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
