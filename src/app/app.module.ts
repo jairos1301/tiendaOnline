@@ -8,7 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DetalleProductoComponent } from './components/detalle-producto/detalle-producto.component';
-import { ListaProductosComponent } from './components/lista-productos/lista-productos.component';
+//import { ListaProductosComponent } from './components/admin/lista-productos/lista-productos.component';
 import { LoginComponent } from './components/users/login/login.component';
 import { RegisterComponent } from './components/users/register/register.component';
 import { Page404Component } from './components/errors/page404/page404.component';
@@ -17,7 +17,11 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
 import { AuthService } from './services/auth.service';
-import { SlideComponent } from './slide/slide.component';
+import { SlideComponent } from './components/slide/slide.component';
+import { SlideMarcasComponent } from './components/slide-marcas/slide-marcas.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { AngularFirestore } from '@angular/fire/firestore';
+//import { NewProductComponent } from './components/admin/new-product/new-product.component';
 
 @NgModule({
   declarations: [
@@ -27,11 +31,14 @@ import { SlideComponent } from './slide/slide.component';
     NavbarComponent,
     FooterComponent,
     DetalleProductoComponent,
-    ListaProductosComponent,
+   //ListaProductosComponent,
     LoginComponent,
     RegisterComponent,
     Page404Component,
-    SlideComponent
+    SlideComponent,
+    SlideMarcasComponent,
+    ContactComponent,
+    //NewProductComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +48,7 @@ import { SlideComponent } from './slide/slide.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,18 +1,19 @@
 <div class="row p-3">
     <div class="col-md-4 mx-auto">
 <div class="card p-3">
-        <img src="./assets/img/Login.png" class="card-img-top mx-auto" alt="INICIO">
+        <img  src="https://www.insafehands.net.au/sites/all/themes/smashing/img/login.png" class="card-img-top mx-auto" alt="INICIO">
         <div class="card-body">
                 <form>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Email address</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" #userEmail required>
                         </div>
                         <div class="form-group">
                           <label for="exampleInputPassword1">Password</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" #userPassword required>
                         </div>
-                            <button type="submit" class="btn btn-outline-success mr-2">Login</button>
+                            <button (click)="authService.login(userEmail.value, userPassword.value)" type="submit" class="btn btn-outline-success mr-2">Login</button>
+                            <button (click)="authService.googleLogin()" class="btn btn-outline-success mr-2">Google</button>
                             <button type="submit" class="btn btn-outline-danger">Cancel</button>
                       </form>
                 </div>

@@ -1,3 +1,14 @@
-<p>
-  detalle-producto works!
-</p>
+<div class="row p-3 mx-auto">
+    <article *ngFor="let producto of productos">
+        <div class="col-3 p-2">
+            <div class="card" style="width: 18rem;">
+                <img src="{{producto.imagen_url}}" class="card-img-top mx-auto" alt="...">
+                <div class="card-body mx-auto">
+                    <h4 class="card-title">{{producto.producto}}</h4>
+                    <h5 class="card-text">{{producto.precio}}</h5>
+                    <a href="#" class="btn btn-primary">Add to cart</a>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
